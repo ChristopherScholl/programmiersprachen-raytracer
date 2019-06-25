@@ -16,6 +16,7 @@ TEST_CASE("Aufgaben 1 bis 5", "[shapes]") {
   Color white{ 1.0,1.0,1.0 };
   Color grey{ 0.5,0.5,0.5 };
   Color black{ 0.0,0.0,0.0 };
+
   glm::vec3 v1{ 0.0,0.0,0.0 };
   glm::vec3 v2{ 1.0,1.0,1.0 };
   glm::vec3 v3{ 2.0,2.0,2.0 };
@@ -58,8 +59,28 @@ TEST_CASE(" intersect_ray_sphere ", "[intersect]")
   float sphere_radius{ 1.0f };
 
   float distance = 0.0f;
-  auto result = glm::intersectRaySphere(ray_origin, ray_direction, sphere_center, sphere_radius * sphere_radius, distance);
+  auto result = glm::intersectRaySphere(
+    ray_origin, 
+    ray_direction, 
+    sphere_center, 
+    sphere_radius * sphere_radius, 
+    distance
+  );
   REQUIRE(distance == Approx(4.0f));
+
+  //-----------meine Tests------------------------------
+
+  Color black{ 0.0,0.0,0.0 };
+  Ray ray{ ray_origin,ray_direction };
+  Sphere sphere1 = Sphere("William", black, sphere_center, sphere_radius);
+
+  HitPoint hitpoint1 = sphere1.intersect(ray);
+  REQUIRE(hitpoint1.gotHit == 1);
+  REQUIRE(hitpoint1.distance == Approx(4.0f));
+  REQUIRE(hitpoint1.name == "William");
+  REQUIRE(hitpoint1.color.b == 0.0);
+  REQUIRE(hitpoint1.position.z == Approx(4.0));
+  REQUIRE(hitpoint1.direction.z == 1.0);
 }
 
 int main(int argc, char *argv[])

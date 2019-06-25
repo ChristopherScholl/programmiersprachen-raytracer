@@ -1,5 +1,7 @@
 #include <sphere.hpp>
 #include <ostream>
+#include <glm/glm.hpp>
+#include <glm/gtx/intersect.hpp>
 
 double PI = 3.14159265358979323846;
 
@@ -19,4 +21,22 @@ std::ostream& Sphere::print(std::ostream& os) const
     << mid_.x << ','
     << mid_.y << ','
     << mid_.z << "), Radius = " << radius_;
+}
+
+HitPoint Sphere::intersect(Ray ray) const {
+  float distance = 0.0f;
+  auto result = glm::intersectRaySphere(
+    ray.origin, 
+    glm::normalize(ray.direction), 
+    mid_, 
+    radius_ * radius_,
+    distance
+  );
+  if (result == 1) {
+    glm::vec3 position = ray.origin + distance * ray.direction;
+    return HitPoint{ true, distance, name_, color_, position, ray.direction };
+  }
+  else {
+    return HitPoint();
+  }
 }
