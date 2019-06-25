@@ -6,6 +6,8 @@
 #include <sphere.hpp>
 #include <box.hpp>
 
+#include <ostream>
+
 TEST_CASE("Aufgabe 1, 2, 3", "[shapes]") {
   Color white{ 1.0,1.0,1.0 };
   Color grey{ 0.5,0.5,0.5 };
@@ -15,6 +17,7 @@ TEST_CASE("Aufgabe 1, 2, 3", "[shapes]") {
   glm::vec3 v3{ 2.0,2.0,2.0 };
 
   Shape shape = Shape("James", white);
+  std::cout << shape << std::endl;
   REQUIRE(shape.name_ == "James");
   REQUIRE(shape.color_.b == 1.0);
   

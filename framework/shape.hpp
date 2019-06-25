@@ -8,15 +8,15 @@ class Shape
 public :
 
   Shape(std::string name, Color color);
-  double area() const;
-  double volume() const;
-  //void print(std::ostream&) const;
+  virtual double area() const;
+  virtual double volume() const;
+  virtual std::ostream& print(std::ostream& os) const;
   
 //private:
   std::string name_ = "DEFAULT";
   Color color_ = { 1.0, 1.0, 1.0 };
 };
 
-// std::ostream& operator<<(std::ostream&, const Pixel&);
+std::ostream& operator <<(std::ostream& os, Shape const& s);
 
 #endif // SHAPE_HPP
