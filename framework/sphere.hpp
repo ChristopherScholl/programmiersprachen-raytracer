@@ -11,10 +11,11 @@ class Sphere : public Shape
 {
 public :
 
-  Sphere(std::string name, Color color, glm::vec3 mid, double radius);;
+  Sphere(std::string name, Color color, glm::vec3 mid, double radius);
+  ~Sphere();
   double area() const;
   double volume() const;
-  virtual std::ostream& print(std::ostream& os) const override;
+  std::ostream& print(std::ostream& os) const override;
   HitPoint intersect(Ray ray) const;
 
 //private:

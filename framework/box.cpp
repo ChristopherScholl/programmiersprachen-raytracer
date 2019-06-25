@@ -1,7 +1,15 @@
 #include <box.hpp>
 #include <ostream>
 
-Box::Box(std::string name, Color color, glm::vec3 min, glm::vec3 max) : Shape(name, color), min_(min), max_(max) {}
+Box::Box(std::string name, Color color, glm::vec3 min, glm::vec3 max) : Shape(name, color), min_(min), max_(max) 
+{
+  std::cout << "called box constructor\n";
+}
+
+Box::~Box() 
+{
+  std::cout << "called box destructor\n";
+}
 
 double Box::area() const {
   double a = max_.x - min_.x;

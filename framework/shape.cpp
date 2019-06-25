@@ -1,7 +1,15 @@
 #include <shape.hpp>
 #include <ostream>
 
-Shape::Shape(std::string name, Color color) : name_(name), color_(color) {}
+Shape::Shape(std::string name, Color color) : name_(name), color_(color) 
+{
+  std::cout << "called shape constructor\n";
+}
+
+Shape::~Shape()
+{
+  std::cout << "called shape destructor\n";
+}
 
 double Shape::area() const {
   return 0.0;

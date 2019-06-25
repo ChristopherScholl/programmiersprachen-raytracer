@@ -5,7 +5,15 @@
 
 double PI = 3.14159265358979323846;
 
-Sphere::Sphere(std::string name, Color color, glm::vec3 mid, double radius) : Shape(name, color), mid_(mid), radius_(radius) {}
+Sphere::Sphere(std::string name, Color color, glm::vec3 mid, double radius) : Shape(name, color), mid_(mid), radius_(radius) 
+{
+  std::cout << "called sphere constructor\n";
+}
+
+Sphere::~Sphere()
+{
+  std::cout << "called sphere destructor\n";
+}
 
 double Sphere::area() const {
   return 4 * PI * radius_ * radius_;
