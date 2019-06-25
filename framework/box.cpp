@@ -4,11 +4,17 @@
 Box::Box(std::string name, Color color, glm::vec3 min, glm::vec3 max) : Shape(name, color), min_(min), max_(max) {}
 
 double Box::area() const {
-  return 0.0;
+  double a = max_.x - min_.x;
+  double b = max_.y - min_.y;
+  double c = max_.z - min_.z;
+  return 2 * ((a * b) + (a * c) + (b * c));
 }
 
 double Box::volume() const {
-  return 0.0;
+  double a = max_.x - min_.x;
+  double b = max_.y - min_.y;
+  double c = max_.z - min_.z;
+  return a * b * c;
 }
 
 //void Pixel::print(std::ostream& os) const
