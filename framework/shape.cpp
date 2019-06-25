@@ -1,8 +1,15 @@
-#include "Shape.hpp"
+#include <shape.hpp>
 #include <ostream>
-#include <glm/vec3.hpp>
 
-Shape::Shape(){}
+Shape::Shape(std::string name, Color color) : name_(name), color_(color) {}
+
+//double Shape::area() const{
+//  
+//}
+
+//double Shape::volume() const{
+//  
+//}
 
 //void Pixel::print(std::ostream& os) const
 //{
@@ -10,14 +17,6 @@ Shape::Shape(){}
 //     << color.r << ','
 //     << color.g << ','
 //     << color.b << ')';
-//}
-
-//double Shape::area() const{
-//  
-//}
-//
-//double Shape::volume() const{
-//  
 //}
 
 //std::ostream& operator<<(std::ostream& os, const Pixel& a)

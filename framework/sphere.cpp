@@ -1,8 +1,15 @@
-#include "sphere.hpp"
+#include <sphere.hpp>
 #include <ostream>
-#include <glm/vec3.hpp>
 
-Sphere::Sphere(){}
+Sphere::Sphere(std::string name, Color color, glm::vec3 mid, double radius) : Shape(name, color), mid_(mid), radius_(radius) {}
+
+double Sphere::area() const {
+  return 0.0;
+}
+
+double Sphere::volume() const {
+  return 0.0;
+}
 
 //void Pixel::print(std::ostream& os) const
 //{
@@ -11,14 +18,6 @@ Sphere::Sphere(){}
 //     << color.g << ','
 //     << color.b << ')';
 //}
-
-double Sphere::area() const{
-  
-}
-
-double Sphere::volume() const{
-  
-}
 
 //std::ostream& operator<<(std::ostream& os, const Pixel& a)
 //{

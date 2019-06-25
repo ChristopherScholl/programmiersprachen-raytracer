@@ -1,8 +1,15 @@
-#include "Box.hpp"
+#include <box.hpp>
 #include <ostream>
-#include <glm/vec3.hpp>
 
-Box::Box(){}
+Box::Box(std::string name, Color color, glm::vec3 min, double max) : Shape(name, color), min_(min), max_(max) {}
+
+double Box::area() const {
+  return 0.0;
+}
+
+double Box::volume() const {
+  return 0.0;
+}
 
 //void Pixel::print(std::ostream& os) const
 //{
@@ -11,14 +18,6 @@ Box::Box(){}
 //     << color.g << ','
 //     << color.b << ')';
 //}
-
-double Box::area() const{
-  
-}
-
-double Box::volume() const{
-  
-}
 
 //std::ostream& operator<<(std::ostream& os, const Pixel& a)
 //{
