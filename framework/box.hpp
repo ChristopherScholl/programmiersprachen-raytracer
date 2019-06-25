@@ -5,11 +5,13 @@
 #include <shape.hpp>
 #include <glm/vec3.hpp>
 
-class Box : Shape
+class Box : public Shape
 {
 public :
 
-  Box(std::string name, Color color, glm::vec3 min, double max);
+  Box(std::string name, Color color, glm::vec3 min, glm::vec3 max);
+  double area() const;
+  double volume() const;
   //void print(std::ostream&) const;
 
 //private:
