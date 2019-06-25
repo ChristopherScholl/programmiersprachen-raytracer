@@ -17,18 +17,13 @@ double Box::volume() const {
   return a * b * c;
 }
 
-//void Pixel::print(std::ostream& os) const
-//{
-//  os << "Pixel[" << (int)x << ',' << (int)y << "]("
-//     << color.r << ','
-//     << color.g << ','
-//     << color.b << ')';
-//}
-
-//std::ostream& operator<<(std::ostream& os, const Pixel& a)
-//{
-//  std::ostream::sentry cerberus (os);
-//  if (cerberus)
-//    a.print(os);
-//  return os;
-//}
+std::ostream& Box::print(std::ostream& os) const
+{
+  return Shape::print(os) << ", minimaler Eckpunkt = ("
+    << min_.x << ','
+    << min_.y << ','
+    << min_.z << "), maximaler Eckpunkt = ("
+    << max_.x << ','
+    << max_.y << ','
+    << max_.z << ')';
+}

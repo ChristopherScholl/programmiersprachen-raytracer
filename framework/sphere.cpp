@@ -13,18 +13,10 @@ double Sphere::volume() const {
   return (4.0/3.0) * PI * radius_ * radius_* radius_;
 }
 
-//void Pixel::print(std::ostream& os) const
-//{
-//  os << "Pixel[" << (int)x << ',' << (int)y << "]("
-//     << color.r << ','
-//     << color.g << ','
-//     << color.b << ')';
-//}
-
-//std::ostream& operator<<(std::ostream& os, const Pixel& a)
-//{
-//  std::ostream::sentry cerberus (os);
-//  if (cerberus)
-//    a.print(os);
-//  return os;
-//}
+std::ostream& Sphere::print(std::ostream& os) const
+{
+  return Shape::print(os) << ", Mittelpunkt = ("
+    << mid_.x << ','
+    << mid_.y << ','
+    << mid_.z << "), Radius = " << radius_;
+}

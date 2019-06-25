@@ -12,13 +12,11 @@ public :
   Box(std::string name, Color color, glm::vec3 min, glm::vec3 max);
   double area() const;
   double volume() const;
-  //void print(std::ostream&) const;
+  std::ostream& print(std::ostream& os) const;
 
 //private:
   glm::vec3 min_;
   glm::vec3 max_;
 };
-
-// std::ostream& operator<<(std::ostream&, const Pixel&);
 
 #endif // BOX_HPP

@@ -12,12 +12,11 @@ public :
   Sphere(std::string name, Color color, glm::vec3 mid, double radius);;
   double area() const;
   double volume() const;
+  virtual std::ostream& print(std::ostream& os) const override;
 
 //private:
   glm::vec3 mid_;
   double radius_ = 0.0;
 };
-
-// std::ostream& operator<<(std::ostream&, const Pixel&);
 
 #endif // SPHERE_HPP

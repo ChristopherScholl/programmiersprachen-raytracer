@@ -22,6 +22,7 @@ TEST_CASE("Aufgabe 1, 2, 3", "[shapes]") {
   REQUIRE(shape.color_.b == 1.0);
   
   Sphere sphere = Sphere("George", grey, v1, 1.0);
+  std::cout << sphere << std::endl;
   REQUIRE(sphere.name_ == "George");
   REQUIRE(sphere.color_.b == 0.5);
   REQUIRE(sphere.mid_.x == 0.0);
@@ -30,6 +31,7 @@ TEST_CASE("Aufgabe 1, 2, 3", "[shapes]") {
   REQUIRE(sphere.volume() == Approx(4.1887902047863908799));
 
   Box box = Box("Charles", black, v2, v3);
+  std::cout << box << std::endl;
   REQUIRE(box.name_ == "Charles");
   REQUIRE(box.color_.b == 0.0);
   REQUIRE(box.min_.x == 1.0);
