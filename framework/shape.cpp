@@ -3,20 +3,12 @@
 
 Shape::Shape(std::string name, Color color) : name_(name), color_(color) 
 {
-  std::cout << "called shape constructor\n";
+  //std::cout << "called shape constructor\n";
 }
 
 Shape::~Shape()
 {
-  std::cout << "called shape destructor\n";
-}
-
-double Shape::area() const {
-  return 0.0;
-}
-
-double Shape::volume() const {
-  return 0.0;
+  //std::cout << "called shape destructor\n";
 }
 
 std::ostream& Shape::print(std::ostream& os) const

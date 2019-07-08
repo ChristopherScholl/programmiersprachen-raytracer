@@ -7,12 +7,12 @@ double PI = 3.14159265358979323846;
 
 Sphere::Sphere(std::string name, Color color, glm::vec3 mid, double radius) : Shape(name, color), mid_(mid), radius_(radius) 
 {
-  std::cout << "called sphere constructor\n";
+  //std::cout << "called sphere constructor\n";
 }
 
 Sphere::~Sphere()
 {
-  std::cout << "called sphere destructor\n";
+  //std::cout << "called sphere destructor\n";
 }
 
 double Sphere::area() const {
@@ -31,7 +31,7 @@ std::ostream& Sphere::print(std::ostream& os) const
     << mid_.z << "), Radius = " << radius_;
 }
 
-HitPoint Sphere::intersect(Ray ray) const {
+HitPoint Sphere::intersect(Ray const& ray) const {
   float distance = 0.0f;
   auto result = glm::intersectRaySphere(
     ray.origin, 

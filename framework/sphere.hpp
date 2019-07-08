@@ -16,7 +16,7 @@ public :
   double area() const;
   double volume() const;
   std::ostream& print(std::ostream& os) const override;
-  HitPoint intersect(Ray ray) const;
+  HitPoint intersect(Ray const& ray) const override;
 
 //private:
   glm::vec3 mid_;
