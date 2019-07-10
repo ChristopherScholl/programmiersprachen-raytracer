@@ -3,13 +3,14 @@
 
 #include <glm/vec3.hpp>
 #include <color.hpp>
+#include <material.hpp>
 
 struct HitPoint
 {
   bool gotHit = false;
   double distance = 0;
   std::string name = "DEFAULT";
-  Color color = { 1.0,1.0,1.0 };
+  std::shared_ptr<Material> mat_name;
   glm::vec3 position = { 0.0f, 0.0f, 0.0f };
   glm::vec3 direction = { 0.0f, 0.0f, 0.0f };
 };

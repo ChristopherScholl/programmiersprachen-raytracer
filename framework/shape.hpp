@@ -4,12 +4,13 @@
 #include <color.hpp>
 #include <Ray.hpp>
 #include <HitPoint.hpp>
+#include <material.hpp>
 
 class Shape
 {
 public :
 
-  Shape(std::string name, Color color);
+  Shape(std::string name, Material material);
   ~Shape();
   virtual double area() const = 0;
   virtual double volume() const = 0;
@@ -18,7 +19,7 @@ public :
   
 //private:
   std::string name_ = "DEFAULT";
-  Color color_ = { 1.0, 1.0, 1.0 };
+  std::shared_ptr<Material> mat_name_;
 };
 
 std::ostream& operator <<(std::ostream& os, Shape const& s);

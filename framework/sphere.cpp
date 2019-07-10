@@ -5,7 +5,7 @@
 
 double PI = 3.14159265358979323846;
 
-Sphere::Sphere(std::string name, Color color, glm::vec3 mid, double radius) : Shape(name, color), mid_(mid), radius_(radius) 
+Sphere::Sphere(std::string name, Material material, glm::vec3 mid, double radius) : Shape(name, material), mid_(mid), radius_(radius) 
 {
   //std::cout << "called sphere constructor\n";
 }
@@ -40,11 +40,6 @@ HitPoint Sphere::intersect(Ray const& ray) const {
     radius_ * radius_,
     distance
   );
-  if (result == 1) {
-    glm::vec3 position = ray.origin + distance * ray.direction;
-    return HitPoint{ true, distance, name_, color_, position, ray.direction };
-  }
-  else {
-    return HitPoint();
-  }
+  glm::vec3 position = ray.origin + distance * ray.direction;
+  return HitPoint{ result, distance, name_, mat_name_, position, ray.direction };
 }

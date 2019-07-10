@@ -11,7 +11,7 @@ class Sphere : public Shape
 {
 public :
 
-  Sphere(std::string name, Color color, glm::vec3 mid, double radius);
+  Sphere(std::string name, Material material, glm::vec3 mid, double radius);
   ~Sphere();
   double area() const;
   double volume() const;

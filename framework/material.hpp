@@ -7,6 +7,7 @@
 struct Material
 {
   Material(std::string n, Color a, Color d, Color s, float f) : name(n), ka(a), kd(d), ks(s), m(f) {}
+  std::ostream& print(std::ostream& os) const;
 
   std::string name;
   Color ka;
@@ -14,5 +15,7 @@ struct Material
   Color ks;
   float m;
 };
+
+std::ostream& operator <<(std::ostream& os, Material const& s);
 
 #endif //#define BUW_MATERIAL_HPP
