@@ -1,60 +1,19 @@
-// -----------------------------------------------------------------------------
-// Copyright  : (C) 2014-2017 Andreas-C. Bernstein
-// License    : MIT (see the file LICENSE)
-// Maintainer : Andreas-C. Bernstein <andreas.bernstein@uni-weimar.de>
-// Stability  : experimental
-//
-// Color
-// -----------------------------------------------------------------------------
-
-#ifndef BUW_COLOR_HPP
-#define BUW_COLOR_HPP
+#ifndef BUW_SCENE_HPP
+#define BUW_SCENE_HPP
 
 #include <iostream>
+#include <vector>
+#include <set>
+#include <map>
+#include <material.hpp>
 
-struct Color
+struct Scene
 {
-  Color(float red, float green, float blue) : r(red), g(green), b(blue) {}
-
-  friend std::ostream& operator<<(std::ostream& os, Color const& c)
-  {
-    os << "(" << c.r << "," << c.g << "," << c.b << ")\n";
-    return os;
-  }
-
-  Color& operator+=(Color const& other)
-  {
-    r += other.r;
-    g += other.g;
-    b += other.b;
-    return *this;
-  }
-
-  Color& operator-=(Color const& other)
-  {
-    r -= other.r;
-    g -= other.g;
-    b -= other.b;
-    return *this;
-  }
-
-  friend Color operator+(Color const& a, Color const& b)
-  {
-    auto tmp(a);
-    tmp += b;
-    return tmp;
-  }
-
-  friend Color operator-(Color const& a, Color const& b)
-  {
-    auto tmp(a);
-    tmp -= b;
-    return tmp;
-  }
-
-  float r;
-  float g;
-  float b;
+  std::vector<std::shared_ptr<Material>> material_vector;
+  std::set<std::shared_ptr<Material>> material_set;
+  std::map<std::string, std::shared_ptr<Material>> material_map;
 };
 
-#endif //#define BUW_COLOR_HPP
+Scene create_scene(std::string path);
+
+#endif //#define BUW_SCENE_HPP
